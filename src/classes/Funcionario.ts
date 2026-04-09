@@ -1,4 +1,5 @@
-import { NiveldeAcesso } from "../enums/NiveldeAcesso"
+import { NiveldeAcesso } from '../enums/NiveldeAcesso'
+import fs from "fs"
 
 export default class Funcionario{
     id: string
@@ -17,6 +18,44 @@ export default class Funcionario{
         this.usuario = usuario
         this.senha = senha
         this.NivelAcesso = NivelAcesso
+    }
+
+    login(DigitarUsuario:string, DigitarSenha:string): boolean {
+        return this.usuario === DigitarUsuario && this.senha === DigitarSenha
+    }
+
+    save() : void{
+
+        console.clear()
+        const arquivar = `./jsons/funcionario/func_${this.id}.json`
+
+        fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
+        console.log('Funcionario Salvo')
+    }
+
+    load(): void{
+        const arquivar = `.jsons/funcionario/func_${this.id}.json`
+
+        if(!fs.existsSync(arquivar)){
+
+            console.clear()
+            console.log('\nFuncionario Não Encontrado, Arquivo não existente ')
+            return
+        }
+
+
+        const file = fs.readFileSync(arquivar, 'utf-8')
+        const objc = JSON.parse(file)
+
+        this.id = objc.id
+        this.nome = objc.nome
+        this.telefone = objc.telefone
+        this.endereco = objc.endereco
+        this.usuario = objc.usuario
+        this.senha = objc.senha
+        this.NivelAcesso = objc.NivelAcesso as NiveldeAcesso
+        console.log('\nFuncionario Carregado!')
+
     }
 
 }
