@@ -33,9 +33,11 @@ export default class Aeronave{
         this.etapas = []
         this.testes = []
     }
+    
+    
 
     detalhar() : void {
-        console.clear
+        console.clear()
         console.log(`\n -=X=- Aeronave ${this.codigo} -=X=-`)
         console.log(`Codigo: ${this.codigo}`)
         console.log(`Ref Modelo ${this.modelo}`)
@@ -67,7 +69,7 @@ export default class Aeronave{
             console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
         }
         else{
-            this.pecas.forEach((etapa) => {
+            this.etapas.forEach((etapa) => {
                 console.log(`Nome: ${etapa.nome}`)
                 console.log(`Prazo Atual: ${etapa.prazo}`)
                 console.log(`Status Atual: ${StatusEtapa[etapa.status]}`)
@@ -76,13 +78,13 @@ export default class Aeronave{
         }
 
         console.log(`\n-=X=- Testes -=X=-`)
-
-        if(this.pecas.length === 0){
+//
+        if(this.testes.length === 0){
             console.log(`Não há Testes cadastrados nessa Aeronave`)
             console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
         }
         else{
-            this.pecas.forEach((teste) => {
+            this.testes.forEach((teste) => {
                 console.log(`Nome: ${TipodeTeste[teste.tipo]}`)
                 console.log(`Status: ${StatusdeTeste[teste.status]}`)
                 console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
@@ -94,19 +96,19 @@ export default class Aeronave{
     save() : void{
 
         console.clear()
-        const arquivar = `./jsons/aeronave/aero_${this.codigo}.json`
+        const arquivar = `../jsons/aeronave/aero_${this.codigo}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Aeronave Salva')
     }
 
     load(): void{
-        const arquivar = `.jsons/aeronave/aero_${this.codigo}.json`
+        const arquivar = `../jsons/aeronave/aero_${this.codigo}.json`
 
         if(!fs.existsSync(arquivar)){
 
             console.clear()
-            console.log('\nFuncionario Não Encontrado, Arquivo não existente ')
+            console.log('\n Aeronave Não Encontrada, Arquivo não existente ')
             return
         }
 
@@ -140,7 +142,7 @@ export default class Aeronave{
 
         this.testes = objc.testes.map((teste : any) => {return new Teste(teste.tipo, teste.resultado, teste.idTest) })
         console.clear()
-        console.log('\nFuncionario Carregado!')
+        console.log('\n Aeronave Carregada !')
         console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
 
     }

@@ -15,7 +15,7 @@ export default class Peca{
         this.tipo = tipo
         this.status = status
     }
-
+//S
     atualizacaodeStatus(novoStatus : StatusdePecas) : void {
         this.status = novoStatus
     }
@@ -23,19 +23,21 @@ export default class Peca{
 save() : void{
 
         console.clear()
-        const arquivar = `./jsons/peca/peca_${this.nome}.json`
+        const arquivar = `../jsons/peca/peca_${this.nome}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Peça Salva')
+        console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
     }
 
     load(): void{
-        const arquivar = `.jsons/peca/peca_${this.nome}.json`
+        const arquivar = `../jsons/peca/peca_${this.nome}.json`
 
         if(!fs.existsSync(arquivar)){
 
             console.clear()
             console.log('\n Peça Não Encontrada!, Arquivo não existente ')
+            console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
             return
         }
 
@@ -48,6 +50,7 @@ save() : void{
         this.tipo = objc.tipo as TipodePeca
         this.status = objc.status as StatusdePecas
         console.log('\n Peça Carregada!')
+        console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
 
     }
 }

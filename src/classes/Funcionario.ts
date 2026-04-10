@@ -15,6 +15,7 @@ export default class Funcionario{
         this.nome = nome
         this.telefone = telefone
         this.endereco = endereco
+  //Z
         this.usuario = usuario
         this.senha = senha
         this.NivelAcesso = NivelAcesso
@@ -27,19 +28,21 @@ export default class Funcionario{
     save() : void{
 
         console.clear()
-        const arquivar = `./jsons/funcionario/func_${this.id}.json`
+        const arquivar = `../jsons/funcionario/func_${this.id}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Funcionario Salvo')
+        console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
     }
 
     load(): void{
-        const arquivar = `.jsons/funcionario/func_${this.id}.json`
+        const arquivar = `../jsons/funcionario/func_${this.id}.json`
 
         if(!fs.existsSync(arquivar)){
 
             console.clear()
             console.log('\nFuncionario Não Encontrado, Arquivo não existente ')
+            console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
             return
         }
 
@@ -54,7 +57,8 @@ export default class Funcionario{
         this.usuario = objc.usuario
         this.senha = objc.senha
         this.NivelAcesso = objc.NivelAcesso as NiveldeAcesso
-        console.log('\nFuncionario Carregado!')
+        console.log('\n Funcionario Carregado!')
+        console.log(`-=X=-=-=X=-=-=X=--=X=-=-=X=-=-=X=-`)
 
     }
 
