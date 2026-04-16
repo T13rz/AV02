@@ -7,8 +7,7 @@ Sistema de gerenciamento de aeronaves via terminal, desenvolvido em **TypeScript
 ## 📁 Estrutura do Projeto
 
 ```
-AV01/
-├── src/
+src/
 │   ├── index.ts
 │   ├── classes/
 │   │   ├── Aeronave.ts

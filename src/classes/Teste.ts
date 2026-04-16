@@ -17,7 +17,7 @@ export default class Teste{
     save() : void{
 //U
         console.clear()
-        const arquivar = `../jsons/teste/func_${this.testId}.json`
+        const arquivar = `./jsons/teste/test_${this.testId}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Teste Salvo')
@@ -25,7 +25,7 @@ export default class Teste{
     }
 
     load(): void{
-        const arquivar = `../jsons/teste/test_${this.testId}.json`
+        const arquivar = `./jsons/teste/test_${this.testId}.json`
 
         if(!fs.existsSync(arquivar)){
 

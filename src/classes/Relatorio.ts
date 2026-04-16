@@ -72,7 +72,7 @@ export default class Relatorio{
 
         save(aeronave : Aeronave) : void{
 
-        const folder = `./relatorios/`
+        const folder = `../relatorios/`
 
             if(!fs.existsSync(folder)){
                 fs.mkdirSync(folder)

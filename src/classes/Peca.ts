@@ -23,7 +23,7 @@ export default class Peca{
 save() : void{
 
         console.clear()
-        const arquivar = `../jsons/peca/peca_${this.nome}.json`
+        const arquivar = `./jsons/peca/peca_${this.nome}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Peça Salva')

@@ -1,10 +1,33 @@
 {
-  "codigo": "AN-01",
-  "modelo": "Miraje",
-  "tipo": 0,
-  "alcance": 30,
-  "capacidade": 15,
+  "codigo": "an-01",
+  "modelo": "002",
+  "tipo": 1,
+  "alcance": 60,
+  "capacidade": 2,
   "pecas": [],
-  "etapas": [],
-  "testes": []
+  "etapas": [
+    {
+      "nome": "E01",
+      "prazo": "20",
+      "status": 2,
+      "funcionarios": [
+        {
+          "id": "1",
+          "nome": "Max Verstappen",
+          "telefone": "12999999999",
+          "endereco": "Nurburgring, 04",
+          "usuario": "Tilapia",
+          "senha": "WDC2025",
+          "NivelAcesso": 1
+        }
+      ]
+    }
+  ],
+  "testes": [
+    {
+      "testId": "TS01",
+      "tipo": 0,
+      "status": 0
+    }
+  ]
 }

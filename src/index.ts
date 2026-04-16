@@ -47,7 +47,7 @@ async function logar() : Promise <Funcionario | null > {
     const DigitarUsuario = await questionar(`Digite o Usuario: `)
     const DigitarSenha = await questionar(`Digite a Senha: `)
 
-    const local = '../jsons/funcionario/'
+    const local = './jsons/funcionario/'
     const arquivos = fs.readdirSync(local)
 
     for(const arquivo of arquivos) {
@@ -144,7 +144,7 @@ async function menu() { //PILASTRI
                 }
 
                 const codigo = await questionar(`Digite o Código da Aeronave: `)
-                const arquivar = `../jsons/aeronaves/aero_${codigo}.json`
+                const arquivar = `./jsons/aeronaves/aero_${codigo}.json`
 
                 if(fs.existsSync(arquivar)){
                     console.clear()
@@ -209,7 +209,7 @@ async function menu() { //PILASTRI
                 }
 
                 const id = await questionar(`Digite o id do Funcionario: `)
-                const pathFunc = `../jsons/funcionario/func_${id}.json`
+                const pathFunc = `./jsons/funcionario/func_${id}.json`
 
                 if(fs.existsSync(pathFunc)){
                     console.clear()
@@ -267,7 +267,7 @@ async function menu() { //PILASTRI
                 }
 
                 const nomePeca = await questionar(`Nome: `)
-                const pathPec = `../jsons/peca/pec_${nomePeca}.json`
+                const pathPec = `./jsons/peca/pec_${nomePeca}.json`
 
                 if (fs.existsSync(pathPec)){
                     console.clear()
@@ -531,7 +531,7 @@ async function menu() { //PILASTRI
                     break
                 }
 
-                const past = `../jsons/funcionario/`
+                const past = `./jsons/funcionario/`
                 const arquivos = fs.readdirSync(past)
                 
                 let encontraFunc: Funcionario | null = null
@@ -628,7 +628,7 @@ async function menu() { //PILASTRI
                 }
 
                 const idTest = await questionar(`ID do Teste: `)
-                const pathTest = `../jsons/teste/teste_${idTest}`
+                const pathTest = `./jsons/teste/teste_${idTest}`
 
                 if(fs.existsSync(pathTest)){
                     console.clear()

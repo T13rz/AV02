@@ -36,7 +36,7 @@ export default class Funcionario{
     }
 
     load(): void{
-        const arquivar = `../jsons/funcionario/func_${this.id}.json`
+        const arquivar = `./jsons/funcionario/func_${this.id}.json`
 
         if(!fs.existsSync(arquivar)){
 

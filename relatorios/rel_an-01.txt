@@ -1,0 +1,22 @@
+
+ -=X=-=X=- Aeronave -=X=-=X=- an-01 
+Codigo: an-01 
+Modelo: 002 
+Tipo: 1 
+Alcance Total: 60 
+Capacidade Total: 2 
+-=X=-=X=-=X=-=X=-=X=-=X=-=X=-=X=-=X=- 
+
+ -=X=-=X=- Peças -=X=-=X=- 
+Nenhuma Peça Cadastrada 
+
+ -=X=-=X=- Etapas -=X=-=X=- 
+Nome: E01 
+Prazo: 20 
+Status: 2 
+-=X=-=X=-=X=-=X=-=X=-=X=-=X=-=X=- 
+
+ -=X=-=X=- Testes -=X=-=X=- 
+Tipo: Aerodinamico 
+Status: Aprovado 
+-=X=-=X=-=X=-=X=-=X=-=X=-=X=-=X=- 

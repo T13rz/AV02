@@ -96,14 +96,14 @@ export default class Aeronave{
     save() : void{
 
         console.clear()
-        const arquivar = `../jsons/aeronave/aero_${this.codigo}.json`
+        const arquivar = `./jsons/aeronave/aero_${this.codigo}.json`
 
         fs.writeFileSync(arquivar, JSON.stringify(this, null, 2))
         console.log('Aeronave Salva')
     }
 
     load(): void{
-        const arquivar = `../jsons/aeronave/aero_${this.codigo}.json`
+        const arquivar = `./jsons/aeronave/aero_${this.codigo}.json`
 
         if(!fs.existsSync(arquivar)){
 
