@@ -1,2 +1,5 @@
 # Dependências
 node_modules/
+
+# Pasta de Build (Vite)
+dist/
