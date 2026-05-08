@@ -13,10 +13,36 @@ O projeto adota o tema **Cyber-Dragon** (Black, Industrial Grey & Electric Cyan)
 | Max Verstappen | `Tilapia` | `WDC2025` | Engenheiro |
 | Lance Stroll | `destroi` | `dummy` | Operador |
 
-## 🚀 Inicialização
-1.  **Dependências:** `npm install`
-2.  **Desenvolvimento:** `npm run dev`
-3.  **Build de Produção:** `npm run build`
+## 🚀 Guia de Inicialização Rápida
+
+Siga os passos abaixo para rodar o projeto localmente:
+
+### 1. Clonar o Repositório
+Abra o seu terminal e execute o comando:
+```bash
+git clone https://github.com/T13rz/AV02.git
+```
+
+### 2. Acessar a Pasta do Projeto
+```bash
+cd AV02
+# ou cd AV02-main (caso tenha baixado como .zip)
+```
+
+### 3. Instalar as Dependências
+Certifique-se de ter o **Node.js** instalado em sua máquina:
+```bash
+npm install
+```
+
+### 4. Iniciar o Servidor de Desenvolvimento
+```bash
+npm run dev
+```
+Após o comando, o terminal exibirá um link (geralmente `http://localhost:5173`). Clique ou copie e cole no seu navegador.
+
+### 5. Configuração Inicial (Importante)
+Ao abrir o site pela primeira vez, caso não veja as aeronaves ou usuários padrão, abra o console do desenvolvedor (`F12`), vá em **Application** > **Local Storage**, clique com o botão direito no link do site e selecione **Clear**. Depois, dê um **F5** na página.
 
 ## 🛠️ Stack Tecnológica
 - **Core:** React 19, TypeScript.
