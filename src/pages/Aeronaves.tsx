@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
-import { IconPlus, IconEye, IconTrash, IconPlane, IconAlertCircle } from '@tabler/icons-react';
+import { IconPlus, IconEye, IconTrash, IconPlane, IconAlertCircle, IconEdit } from '@tabler/icons-react';
 import { TipoAeronave } from '../types';
 
 const TIPO_LABELS = ['Comercial', 'Carga', 'Militar'];
@@ -8,6 +8,7 @@ const TIPO_LABELS = ['Comercial', 'Carga', 'Militar'];
 const Aeronaves = () => {
   const { aeronaves, setAeronaves, user } = useAppContext();
   const [showModal, setShowModal] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState('');
   const [novaAero, setNovaAero] = useState({
     codigo: '',
@@ -16,6 +17,13 @@ const Aeronaves = () => {
     alcance: 0,
     capacidade: 0
   });
+
+  const handleOpenEdit = (a: any) => {
+    setNovaAero(a);
+    setIsEditing(true);
+    setShowModal(true);
+    setError('');
+  };
 
   const handleSave = () => {
     setError('');
@@ -26,15 +34,25 @@ const Aeronaves = () => {
       return;
     }
 
-    // Regra de Unicidade: Código de Aeronave
-    if (aeronaves.some(a => a.codigo === codigoTrim)) {
-      setError('Este código de aeronave já está em uso.');
-      return;
+    if (isEditing) {
+      setAeronaves(aeronaves.map(a => a.codigo === novaAero.codigo ? { ...a, ...novaAero } : a));
+    } else {
+      // Regra de Unicidade: Código de Aeronave
+      if (aeronaves.some(a => a.codigo === codigoTrim)) {
+        setError('Este código de aeronave já está em uso.');
+        return;
+      }
+      setAeronaves([...aeronaves, { ...novaAero, codigo: codigoTrim, pecas: [], etapas: [], testes: [] }]);
     }
+    
+    handleClose();
+  };
 
-    setAeronaves([...aeronaves, { ...novaAero, codigo: codigoTrim, pecas: [], etapas: [], testes: [] }]);
+  const handleClose = () => {
     setShowModal(false);
+    setIsEditing(false);
     setNovaAero({ codigo: '', modelo: '', tipo: 0, alcance: 0, capacidade: 0 });
+    setError('');
   };
 
   const handleRemove = (codigo: string) => {
@@ -54,10 +72,12 @@ const Aeronaves = () => {
           <h2 style={{ fontSize: '24px', fontWeight: 900, letterSpacing: '2px' }}>AERONAVES</h2>
           <p style={{ fontSize: '11px', color: '#555', textTransform: 'uppercase' }}>Frota e unidades em fabricação</p>
         </div>
-        <button className="btn btn-primary" onClick={() => setShowModal(true)}>
-          <IconPlus size={16} />
-          REGISTRAR UNIDADE
-        </button>
+        {user?.NivelAcesso === 0 && (
+          <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+            <IconPlus size={16} />
+            REGISTRAR UNIDADE
+          </button>
+        )}
       </div>
 
       <div className="card" style={{ padding: 0 }}>
@@ -86,6 +106,11 @@ const Aeronaves = () => {
                   <td>{a.alcance} KM</td>
                   <td>{a.capacidade} PAX</td>
                   <td style={{ textAlign: 'right', display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+                    {user?.NivelAcesso === 0 && (
+                      <button className="btn btn-sm" onClick={() => handleOpenEdit(a)} title="Editar Unidade" style={{ border: 'none', background: 'transparent' }}>
+                        <IconEdit size={16} color="var(--color-accent)" />
+                      </button>
+                    )}
                     <button className="btn btn-sm" title="Ver Detalhes">
                       <IconEye size={14} color="var(--color-accent)" />
                     </button>

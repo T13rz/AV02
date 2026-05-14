@@ -24,8 +24,24 @@ const Relatorios = () => {
     if (!aero) return;
     let txt = `AEROCODE — RELATÓRIO\n${'='.repeat(40)}\n`;
     txt += `Código: ${aero.codigo}\nModelo: ${aero.modelo}\nTipo: ${TIPO_AERO[aero.tipo]}\nAlcance: ${aero.alcance} km\nCapacidade: ${aero.capacidade}\n\n`;
-    txt += `PEÇAS\n${'-'.repeat(30)}\nNenhuma peça registrada.\n`;
-    txt += `\nETAPAS\n${'-'.repeat(30)}\nNenhuma etapa registrada.\n`;
+    
+    txt += `PEÇAS\n${'-'.repeat(30)}\n`;
+    if (aero.pecas.length === 0) {
+      txt += "Nenhuma peça registrada.\n";
+    } else {
+      aero.pecas.forEach(p => {
+        txt += `- ${p.nome} (${p.fornecedor})\n`;
+      });
+    }
+
+    txt += `\nETAPAS\n${'-'.repeat(30)}\n`;
+    if (aero.etapas.length === 0) {
+      txt += "Nenhuma etapa registrada.\n";
+    } else {
+      aero.etapas.forEach(e => {
+        txt += `- ${e.nome} (${e.prazo}) - ${['Pendente', 'Em Andamento', 'Concluída'][e.status]}\n`;
+      });
+    }
     
     const blob = new Blob([txt], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -48,7 +64,7 @@ const Relatorios = () => {
             <label style={{ display: 'block', fontSize: '12px', marginBottom: '4px' }}>Selecionar Aeronave</label>
             <select 
               className="btn" 
-              style={{ width: '100%', textAlign: 'left', background: '#fff' }}
+              style={{ width: '100%', textAlign: 'left', background: '#000' }}
               value={selectedAero}
               onChange={e => setSelectedAero(e.target.value)}
             >

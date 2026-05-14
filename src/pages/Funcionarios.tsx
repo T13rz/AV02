@@ -143,8 +143,8 @@ const Funcionarios = () => {
                   <button className="btn btn-sm" onClick={() => handleOpenEdit(f)} title="Editar Usuário" style={{ border: 'none', background: 'transparent' }}>
                     <IconEdit size={16} color="var(--color-accent)" />
                   </button>
-                  <button className="btn btn-sm btn-danger" onClick={() => handleRemove(f.id)} title="Remover Usuário" style={{ border: 'none', background: 'transparent' }}>
-                    <IconTrash size={16} color="var(--color-text-danger)" />
+                  <button className="btn btn-sm" onClick={() => handleRemove(f.id)} title="Remover Usuário" style={{ border: 'none', background: 'transparent' }}>
+                    <IconTrash size={16} color="#ff3333" />
                   </button>
                 </td>
               </tr>

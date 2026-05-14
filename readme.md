@@ -1,54 +1,46 @@
-# 🐉 DrakoSYS — Gerenciamento Aeronáutico (SPA)
+# AeroCode - Sistema de Gestão Aeronáutica
 
-Sistema industrial de ponta para gerenciamento de fabricação de aeronaves, desenvolvido em **React 19** + **TypeScript** + **Vite**.
+AeroCode é uma plataforma avançada de gerenciamento para a indústria aeroespacial, focada no controle de fabricação de aeronaves, gestão de componentes, fluxos produtivos e testes de qualidade.
 
-## 🎨 Identidade Visual
-O projeto adota o tema **Cyber-Dragon** (Black, Industrial Grey & Electric Cyan), projetado para operações de alta precisão e visibilidade em ambientes escuros.
+## 🚀 Funcionalidades Principais
 
-## 🔐 Credenciais Operacionais (Default)
-| Colaborador | Usuário | Senha | Nível |
-| :--- | :--- | :--- | :--- |
-| Lewis Hamilton | `admin` | `admin123` | Administrador |
-| Oscar Piastri | `pilastrini` | `WDC2026` | Administrador |
-| Max Verstappen | `Tilapia` | `WDC2025` | Engenheiro |
-| Lance Stroll | `destroi` | `dummy` | Operador |
+### ✈️ Gestão de Frota
+- Registro completo de unidades com código ID, modelo, autonomia e capacidade.
+- Edição e remoção de registros (exclusivo Administrador).
 
-## 🚀 Guia de Inicialização Rápida
+### 🛠️ Operações (Interface por Guias)
+- **Peças:** Cadastro de componentes com rastreamento de fornecedor e tipo.
+- **Etapas:** Fluxo produtivo sequencial. Controle rigoroso de início e fim de tarefas.
+- **Testes:** Registro de testes de segurança, desempenho e resistência.
 
-Siga os passos abaixo para rodar o projeto localmente:
+### 📋 Relatórios & Documentação
+- Geração de relatórios em tempo real.
+- Exportação em formato `.txt` contendo dados reais de produção, componentes e equipe.
 
-### 1. Clonar o Repositório
-Abra o seu terminal e execute o comando:
-```bash
-git clone https://github.com/T13rz/AV02.git
-```
+## 🔐 Matriz de Acessos
 
-### 2. Acessar a Pasta do Projeto
-```bash
-cd AV02
-# ou cd AV02-main (caso tenha baixado como .zip)
-```
+| Funcionalidade | Administrador | Engenheiro | Operador |
+| :--- | :---: | :---: | :---: |
+| Gerir Aeronaves | ✅ | ❌ | ❌ |
+| Gerir Funcionários | ✅ | ❌ | ❌ |
+| Gerir Peças | ✅ | ✅ | ❌ |
+| Gerir Etapas | ✅ | ✅ | ✅ |
+| Gerir Testes | ✅ | ✅ | ❌ |
+| Ver Relatórios | ✅ | ❌ | ❌ |
 
-### 3. Instalar as Dependências
-Certifique-se de ter o **Node.js** instalado em sua máquina:
-```bash
-npm install
-```
+## 🛠️ Tecnologias Utilizadas
 
-### 4. Iniciar o Servidor de Desenvolvimento
-```bash
-npm run dev
-```
-Após o comando, o terminal exibirá um link (geralmente `http://localhost:5173`). Clique ou copie e cole no seu navegador.
+- **React + TypeScript** (Frontend)
+- **Vite** (Build Tool)
+- **Tabler Icons** (Interface Visual)
+- **LocalStorage API** (Persistência de Dados)
+- **CSS Variables** (Tematização Dark Mode)
 
-### 5. Configuração Inicial (Importante)
-Ao abrir o site pela primeira vez, caso não veja as aeronaves ou usuários padrão, abra o console do desenvolvedor (`F12`), vá em **Application** > **Local Storage**, clique com o botão direito no link do site e selecione **Clear**. Depois, dê um **F5** na página.
+## 📌 Regras de Negócio Importantes
 
-## 🛠️ Stack Tecnológica
-- **Core:** React 19, TypeScript.
-- **Roteamento:** React Router 7.
-- **Ícones:** Tabler Icons.
-- **Persistência:** LocalStorage Engine (via `src/services/storage.ts`).
+1.  **Sequencialidade Produtiva:** Uma etapa só pode ser iniciada se a anterior já tiver sido iniciada. Uma etapa só pode ser concluída se a anterior já tiver sido concluída.
+2.  **Segurança de Dados:** O sistema utiliza níveis de acesso (0, 1, 2) para proteger operações críticas.
+3.  **Equipe:** Toda etapa produtiva exige a alocação de pelo menos um colaborador responsável.
 
 ---
-**Nota de Segurança:** Para aplicar atualizações estruturais de dados, limpe o Local Storage do navegador (F12 > Application > Clear Storage) antes de iniciar a sessão.
+*Desenvolvido para controle de alta precisão em ambientes industriais.*
